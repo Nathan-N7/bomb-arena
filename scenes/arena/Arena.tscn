@@ -1,6 +1,21 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bgro3klgmbehc"]
 
-[ext_resource type="Script" path="res://scenes/arena/Arena.cs" id="1"]
+[ext_resource type="Script" uid="uid://7t7cfe2d7ner" path="res://scenes/arena/Arena.cs" id="1"]
 
-[node name="Arena" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_or6f2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc5gq"]
+size = Vector3(1.2470093, 0.10131836, 1.0704346)
+
+[node name="Arena" type="Node3D" unique_id=1201583026]
 script = ExtResource("1")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1847665064]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=977566587]
+transform = Transform3D(-12.5, 1.509958e-07, 0, -1.8874475e-06, -1, 0, 0, 0, 10.763, 0, 0, 0)
+mesh = SubResource("BoxMesh_or6f2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1559830516]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.015563965, -0.013427734, 0.015258789)
+shape = SubResource("BoxShape3D_tc5gq")
